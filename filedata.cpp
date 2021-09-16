@@ -84,6 +84,7 @@ int filedata::del_book(int pos)
 
 int filedata::find_book_pos(int pos)
 {
+	pos--;
 	if ((pos < 1) || (pos > length))return -1;
 	cout << setw(15) << left << "ISBN" << '\t';
 	cout << setw(35) << left << "ÊéÃû" << '\t';
@@ -122,7 +123,7 @@ void filedata::change_book()
 {
 	for (int i = 0; i < length; i++)
 	{
-		if (books_data[i].book_price < 25)books_data[i].book_price *= 1.25;
+		if (books_data[i].book_price < 25)books_data[i].book_price *= 1.2;
 		else books_data[i].book_price *= 1.1;
 	}
 }
@@ -132,7 +133,7 @@ void filedata::sort_book()
 	book_data temp;
 	for (int i = 0; i < length - 1; i++)
 	{
-		for (int j = 0; j < length - 1 - j; j++)
+		for (int j = 0; j < length - 1 - i; j++)
 		{
 			if (books_data[j].book_price > books_data[j + 1].book_price)
 			{

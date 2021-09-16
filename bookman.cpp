@@ -64,7 +64,7 @@ void menu(filedata& data_obj, fileio& io_obj)
 		else
 		{
 			data_obj.del_book(stoi(pos) - 48);
-			io_obj.write_out("test.txt");
+			io_obj.write_out("book.txt");
 			system("pause");
 			cout << "按任意键返回主菜单..." << endl;
 			menu(data_obj, io_obj);
@@ -83,10 +83,14 @@ void menu(filedata& data_obj, fileio& io_obj)
 		break;
 	case '6':
 		data_obj.sort_book();
+		cout << "Done!" << endl;
 		io_obj.write_out("book_newsort.txt");
+		system("pause");
+		cout << "按任意键返回主菜单..." << endl;
+		menu(data_obj, io_obj);
 		break;
 	case '7':
-		exit(0);
+		cout << "感谢使用，再见！" << endl;
 		break;
 	default:
 		cout << "非法输入！请输入菜单前的数字！" << endl;
@@ -96,9 +100,8 @@ void menu(filedata& data_obj, fileio& io_obj)
 	}
 }
 
-void insert_menu(filedata& data_obj, fileio& io_obj, char pos)
+void insert_menu(filedata& data_obj, fileio& io_obj, int pos)
 {
-	int posi = pos - 48;
 	book_data newbook;
 	string temp;
 	cout << "请输入ISBN号：";
@@ -125,8 +128,8 @@ void insert_menu(filedata& data_obj, fileio& io_obj, char pos)
 	else newbook.book_price = stod(temp);
 	newbook.isNull = false;
 
-	data_obj.insert_book(posi, newbook);
-	io_obj.write_out("test.txt");
+	data_obj.insert_book(pos, newbook);
+	io_obj.write_out("book.txt");
 	system("pause");
 	cout << "按任意键返回主菜单..." << endl;
 	menu(data_obj, io_obj);
@@ -135,10 +138,13 @@ void insert_menu(filedata& data_obj, fileio& io_obj, char pos)
 void seekmenu(filedata& data_obj, fileio& io_obj)
 {
 	string temp;
+	int stuts = 0;
+	cout << "请输入想要查找的位置或名称，自动匹配：";
 	cin >> temp;
 	cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
 	if (isint(temp) && (stoi(temp) >= 1) && (stoi(temp) <= data_obj.get_length()))data_obj.find_book_pos(stoi(temp));
-	else data_obj.find_book_name(temp);
+	else stuts = data_obj.find_book_name(temp);
+	if (stuts != 0)cout << "输入位置不正确或没有对应名称的书本！" << endl;
 	system("pause");
 	cout << "按任意键返回主菜单..." << endl;
 	menu(data_obj, io_obj);
