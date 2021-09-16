@@ -21,3 +21,4 @@ void menu(filedata& data_obj, fileio& io_obj);
 void insert_menu(filedata& data_obj, fileio& io_obj, char pos);
 bool isdouble(string x);
 bool isint(string x);
+void seekmenu(filedata& data_obj, fileio& io_obj);

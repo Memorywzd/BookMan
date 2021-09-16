@@ -60,6 +60,8 @@ int filedata::insert_book(int pos, book_data e)
 {
 	if ((pos < 1) || (pos > length + 1))return -1;
 	if (length == BOOKNUM)return -1;
+	cout << pos << endl;
+	system("pause");
 	for (int i = length - 1; i >= pos - 1; i--)
 	{
 		books_data[i + 1] = books_data[i];
