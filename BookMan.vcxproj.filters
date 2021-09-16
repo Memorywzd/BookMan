@@ -18,7 +18,7 @@
     <ClCompile Include="bookman.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="data.cpp">
+    <ClCompile Include="filedata.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="fileio.cpp">
@@ -29,7 +29,7 @@
     <ClInclude Include="bookman.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="data.h">
+    <ClInclude Include="filedata.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="fileio.h">

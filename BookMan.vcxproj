@@ -140,12 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="bookman.cpp" />
-    <ClCompile Include="data.cpp" />
+    <ClCompile Include="filedata.cpp" />
     <ClCompile Include="fileio.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bookman.h" />
-    <ClInclude Include="data.h" />
+    <ClInclude Include="filedata.h" />
     <ClInclude Include="fileio.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
